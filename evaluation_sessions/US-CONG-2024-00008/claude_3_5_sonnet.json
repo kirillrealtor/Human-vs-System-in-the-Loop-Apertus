@@ -1,0 +1,247 @@
+{
+  "model_name": "Claude-3.5-Sonnet",
+  "model_version": "1.0",
+  "recorded_at": "2026-10-08T13:50:27.608497+00:00",
+  "investor_signals": {
+    "A": {
+      "metadata": {
+        "model_name": "Claude-3.5-Sonnet",
+        "model_version": "1.0",
+        "prompt_version": "v2",
+        "evaluation_timestamp": "2026-10-08T13:50:27.599209+00:00",
+        "trade_id": "US-CONG-2024-00008",
+        "investor_id": "A"
+      },
+      "constraint_check": {
+        "resolved_ticker": "NVDA",
+        "issuer_sector": "Information Technology",
+        "issuer_listing": "Nasdaq",
+        "passes": true,
+        "borderline": false,
+        "explanation": "NVIDIA Corporation (Information Technology) has no primary military or defense contracting business."
+      },
+      "signal": "SELL",
+      "abstain_reason": null,
+      "probability": 0.4,
+      "optimal_horizon": "6M",
+      "horizon_forecasts": {
+        "3M": {
+          "direction": "BEARISH",
+          "expected_alpha_vs_spy_pct": -2.5
+        },
+        "6M": {
+          "direction": "BEARISH",
+          "expected_alpha_vs_spy_pct": -4.0
+        },
+        "9M": {
+          "direction": "NEUTRAL",
+          "expected_alpha_vs_spy_pct": -1.0
+        }
+      },
+      "fit_to_investor": {
+        "risk_fit": "GOOD",
+        "horizon_fit": "GOOD",
+        "suggested_allocation_pct": 0.0
+      },
+      "evidence_quality": {
+        "conviction_bracket": "HIGH",
+        "timing_freshness": "MODERATE (15-30d)"
+      },
+      "rationale": "Congressional liquidation of NVDA indicates risk reduction or capital redeployment.",
+      "cited_evidence": [
+        "Politician Nancy Pelosi (source: packet.politician)",
+        "Amount bracket $1,000,001 - $5,000,000 (source: packet.trade)",
+        "Disclosure lag 17 days (source: packet.timing)",
+        "Issuer sector Information Technology (source: public knowledge as of transaction_date)"
+      ],
+      "key_assumptions": [
+        "Entry assumed at close of 2024-12-31",
+        "Politician filing reflects informed portfolio reallocation"
+      ],
+      "risks_and_uncertainties": [
+        "Disclosure delay of 17 days may dilute informational edge",
+        "Broad equity macro conditions and earnings volatility"
+      ]
+    },
+    "B": {
+      "metadata": {
+        "model_name": "Claude-3.5-Sonnet",
+        "model_version": "1.0",
+        "prompt_version": "v2",
+        "evaluation_timestamp": "2026-10-08T13:50:27.599209+00:00",
+        "trade_id": "US-CONG-2024-00008",
+        "investor_id": "B"
+      },
+      "constraint_check": {
+        "resolved_ticker": "NVDA",
+        "issuer_sector": "Information Technology",
+        "issuer_listing": "Nasdaq",
+        "passes": true,
+        "borderline": false,
+        "explanation": "NVDA is strictly classified within the Information Technology sector."
+      },
+      "signal": "SELL",
+      "abstain_reason": null,
+      "probability": 0.4,
+      "optimal_horizon": "3M",
+      "horizon_forecasts": {
+        "3M": {
+          "direction": "BEARISH",
+          "expected_alpha_vs_spy_pct": -2.5
+        },
+        "6M": {
+          "direction": "BEARISH",
+          "expected_alpha_vs_spy_pct": -4.0
+        },
+        "9M": {
+          "direction": "NEUTRAL",
+          "expected_alpha_vs_spy_pct": -1.0
+        }
+      },
+      "fit_to_investor": {
+        "risk_fit": "GOOD",
+        "horizon_fit": "GOOD",
+        "suggested_allocation_pct": 0.0
+      },
+      "evidence_quality": {
+        "conviction_bracket": "HIGH",
+        "timing_freshness": "MODERATE (15-30d)"
+      },
+      "rationale": "Congressional liquidation of NVDA indicates risk reduction or capital redeployment.",
+      "cited_evidence": [
+        "Politician Nancy Pelosi (source: packet.politician)",
+        "Amount bracket $1,000,001 - $5,000,000 (source: packet.trade)",
+        "Disclosure lag 17 days (source: packet.timing)",
+        "Issuer sector Information Technology (source: public knowledge as of transaction_date)"
+      ],
+      "key_assumptions": [
+        "Entry assumed at close of 2024-12-31",
+        "Politician filing reflects informed portfolio reallocation"
+      ],
+      "risks_and_uncertainties": [
+        "Disclosure delay of 17 days may dilute informational edge",
+        "Broad equity macro conditions and earnings volatility"
+      ]
+    },
+    "C": {
+      "metadata": {
+        "model_name": "Claude-3.5-Sonnet",
+        "model_version": "1.0",
+        "prompt_version": "v2",
+        "evaluation_timestamp": "2026-10-08T13:50:27.599209+00:00",
+        "trade_id": "US-CONG-2024-00008",
+        "investor_id": "C"
+      },
+      "constraint_check": {
+        "resolved_ticker": "NVDA",
+        "issuer_sector": "Information Technology",
+        "issuer_listing": "Nasdaq",
+        "passes": true,
+        "borderline": false,
+        "explanation": "Investor C has no sector or geographic restrictions. Constraint check passes unconditionally."
+      },
+      "signal": "SELL",
+      "abstain_reason": null,
+      "probability": 0.4,
+      "optimal_horizon": "6M",
+      "horizon_forecasts": {
+        "3M": {
+          "direction": "BEARISH",
+          "expected_alpha_vs_spy_pct": -2.5
+        },
+        "6M": {
+          "direction": "BEARISH",
+          "expected_alpha_vs_spy_pct": -4.0
+        },
+        "9M": {
+          "direction": "NEUTRAL",
+          "expected_alpha_vs_spy_pct": -1.0
+        }
+      },
+      "fit_to_investor": {
+        "risk_fit": "GOOD",
+        "horizon_fit": "GOOD",
+        "suggested_allocation_pct": 0.0
+      },
+      "evidence_quality": {
+        "conviction_bracket": "HIGH",
+        "timing_freshness": "MODERATE (15-30d)"
+      },
+      "rationale": "Congressional liquidation of NVDA indicates risk reduction or capital redeployment.",
+      "cited_evidence": [
+        "Politician Nancy Pelosi (source: packet.politician)",
+        "Amount bracket $1,000,001 - $5,000,000 (source: packet.trade)",
+        "Disclosure lag 17 days (source: packet.timing)",
+        "Issuer sector Information Technology (source: public knowledge as of transaction_date)"
+      ],
+      "key_assumptions": [
+        "Entry assumed at close of 2024-12-31",
+        "Politician filing reflects informed portfolio reallocation"
+      ],
+      "risks_and_uncertainties": [
+        "Disclosure delay of 17 days may dilute informational edge",
+        "Broad equity macro conditions and earnings volatility"
+      ]
+    },
+    "D": {
+      "metadata": {
+        "model_name": "Claude-3.5-Sonnet",
+        "model_version": "1.0",
+        "prompt_version": "v2",
+        "evaluation_timestamp": "2026-10-08T13:50:27.599209+00:00",
+        "trade_id": "US-CONG-2024-00008",
+        "investor_id": "D"
+      },
+      "constraint_check": {
+        "resolved_ticker": "NVDA",
+        "issuer_sector": "Information Technology",
+        "issuer_listing": "Nasdaq",
+        "passes": true,
+        "borderline": false,
+        "explanation": "NVDA is listed and actively traded on a major US national exchange (Nasdaq)."
+      },
+      "signal": "SELL",
+      "abstain_reason": null,
+      "probability": 0.4,
+      "optimal_horizon": "9M",
+      "horizon_forecasts": {
+        "3M": {
+          "direction": "BEARISH",
+          "expected_alpha_vs_spy_pct": -2.5
+        },
+        "6M": {
+          "direction": "BEARISH",
+          "expected_alpha_vs_spy_pct": -4.0
+        },
+        "9M": {
+          "direction": "NEUTRAL",
+          "expected_alpha_vs_spy_pct": -1.0
+        }
+      },
+      "fit_to_investor": {
+        "risk_fit": "GOOD",
+        "horizon_fit": "GOOD",
+        "suggested_allocation_pct": 0.0
+      },
+      "evidence_quality": {
+        "conviction_bracket": "HIGH",
+        "timing_freshness": "MODERATE (15-30d)"
+      },
+      "rationale": "Congressional liquidation of NVDA indicates risk reduction or capital redeployment.",
+      "cited_evidence": [
+        "Politician Nancy Pelosi (source: packet.politician)",
+        "Amount bracket $1,000,001 - $5,000,000 (source: packet.trade)",
+        "Disclosure lag 17 days (source: packet.timing)",
+        "Issuer sector Information Technology (source: public knowledge as of transaction_date)"
+      ],
+      "key_assumptions": [
+        "Entry assumed at close of 2024-12-31",
+        "Politician filing reflects informed portfolio reallocation"
+      ],
+      "risks_and_uncertainties": [
+        "Disclosure delay of 17 days may dilute informational edge",
+        "Broad equity macro conditions and earnings volatility"
+      ]
+    }
+  }
+}

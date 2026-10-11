@@ -1,0 +1,839 @@
+[
+  {
+    "id": "US-CONG-2024-00390",
+    "politician": "Ro Khanna",
+    "party": "Democrat",
+    "chamber": "House",
+    "district": "CA-17",
+    "committees": [
+      "Armed Services (Cyber & Tech Ranking)",
+      "Oversight (National Security)"
+    ],
+    "ticker": "HII",
+    "asset_name": "Huntington Ingalls Industries",
+    "asset_type": "Common Stock",
+    "tx_type": "Purchase",
+    "amount": "$1,001 - $15,000",
+    "owner": "Child (DC)",
+    "tx_date": "2024-12-18",
+    "filing_date": "2025-01-08",
+    "days_lag": 21,
+    "origin": "Scanned OCR Document",
+    "category": "Defense Contractor",
+    "market_returns": {
+      "3M": {
+        "asset": "+8.10%",
+        "spy": "-3.99%",
+        "alpha": "+12.09%",
+        "beat": true
+      },
+      "6M": {
+        "asset": "+19.55%",
+        "spy": "+3.45%",
+        "alpha": "+16.10%",
+        "beat": true
+      },
+      "9M": {
+        "asset": "+43.07%",
+        "spy": "+13.78%",
+        "alpha": "+29.29%",
+        "beat": true
+      }
+    },
+    "model_signals": {
+      "Apertus-1.5-70B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Strict compliance: HII is primary US nuclear submarine builder. Violates Investor A ethical mandate.",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 5,
+          "R4": 4,
+          "R5": 5,
+          "R6": 5,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.4,
+        "model_class": "70 Billion Parameter Flagship (Swiss AI ETH/EPFL)"
+      },
+      "Apertus-1.5-8B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Strict compliance: HII is primary US defense shipbuilder (Newport News). Violates Investor A ethical mandate.",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 5,
+          "R4": 4,
+          "R5": 5,
+          "R6": 5,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.3
+      },
+      "Qwen-2.5-7B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Resolved ticker HII. Pure defense contractor business model. Constraint check passes = false.",
+        "rubric": {
+          "R1": 5,
+          "R2": 4,
+          "R3": 4,
+          "R4": 4,
+          "R5": 4,
+          "R6": 4,
+          "R7": 4,
+          "R8": 5
+        },
+        "status": "WEIGHTED",
+        "weight": 0.2
+      },
+      "Llama-3.1-8B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Armed Services committee tie identified. Issuer classified in Aerospace & Defense. Disqualified for Investor A.",
+        "rubric": {
+          "R1": 5,
+          "R2": 4,
+          "R3": 5,
+          "R4": 4,
+          "R5": 5,
+          "R6": 4,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.35
+      },
+      "Gemma-2-9B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Conservative policy check: Military naval defense segment exceeds 90% revenue. Strict abstention.",
+        "rubric": {
+          "R1": 5,
+          "R2": 4,
+          "R3": 4,
+          "R4": 3,
+          "R5": 5,
+          "R6": 5,
+          "R7": 4,
+          "R8": 5
+        },
+        "status": "WEIGHTED",
+        "weight": 0.0
+      },
+      "Mistral-7B": {
+        "signal": "BUY",
+        "reason": null,
+        "prob": 0.65,
+        "explanation": "High legislative defense spending tailwind detected. Recommends tactical entry.",
+        "rubric": {
+          "R1": 0,
+          "R2": 3,
+          "R3": 4,
+          "R4": 3,
+          "R5": 1,
+          "R6": 2,
+          "R7": 3,
+          "R8": 5
+        },
+        "status": "DISCOUNTED",
+        "weight": 0.0,
+        "flaw": "CONSTRAINT_VIOLATION (Recommended BUY on defense asset for Investor A)"
+      }
+    },
+    "jev_decision": {
+      "signal": "ABSTAIN",
+      "reason": "CONSTRAINT_FAIL",
+      "verdict": "Investor A hard constraint enforced: Huntington Ingalls Industries is a prime defense shipbuilder. Mistral-7B discounted for constraint violation. Apertus & Llama selected.",
+      "message": "JEV Decision for Ethical No-Military: ABSTAIN. Trade disqualified under defense restriction despite market alpha. Trust assigned to Apertus & Llama."
+    },
+    "official_url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2024/20026138.pdf",
+    "investor_profile": {
+      "id": "A",
+      "name": "Ethical No-Military",
+      "hard_constraint": "Must NOT hold companies in the military / defense sector. Weapons, military vehicles, or prime defense contractors MUST be ABSTAIN.",
+      "risk_appetite": "Conservative",
+      "horizon": "6M"
+    }
+  },
+  {
+    "id": "US-CONG-2024-00008",
+    "politician": "Nancy Pelosi",
+    "party": "Democrat",
+    "chamber": "House",
+    "district": "CA-11",
+    "committees": [
+      "House Member (Speaker Emerita)"
+    ],
+    "ticker": "NVDA",
+    "asset_name": "NVIDIA Corporation",
+    "asset_type": "Common Stock",
+    "tx_type": "Sale (Partial)",
+    "amount": "$1,000,001 - $5,000,000",
+    "owner": "Spouse (SP)",
+    "tx_date": "2024-12-31",
+    "filing_date": "2025-01-17",
+    "days_lag": 17,
+    "origin": "House PTR Electronic",
+    "category": "Mega-Cap Tech",
+    "market_returns": {
+      "3M": {
+        "asset": "-19.29%",
+        "spy": "-4.27%",
+        "alpha": "-15.02%",
+        "beat": false
+      },
+      "6M": {
+        "asset": "+17.67%",
+        "spy": "+6.05%",
+        "alpha": "+11.62%",
+        "beat": true
+      },
+      "9M": {
+        "asset": "+35.45%",
+        "spy": "+14.23%",
+        "alpha": "+21.21%",
+        "beat": true
+      }
+    },
+    "model_signals": {
+      "Apertus-1.5-70B": {
+        "signal": "SELL",
+        "reason": null,
+        "prob": 0.58,
+        "explanation": "High-conviction partial liquidation ($1M-$5M). Anticipates near-term semiconductor multiple compression.",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 5,
+          "R4": 5,
+          "R5": 5,
+          "R6": 5,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.4,
+        "model_class": "70 Billion Parameter Flagship (Swiss AI ETH/EPFL)"
+      },
+      "Apertus-1.5-8B": {
+        "signal": "SELL",
+        "reason": null,
+        "prob": 0.58,
+        "explanation": "Partial disposition (-). Anticipates near-term semiconductor multiple compression.",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 5,
+          "R4": 5,
+          "R5": 5,
+          "R6": 5,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.25
+      },
+      "Qwen-2.5-7B": {
+        "signal": "SELL",
+        "reason": null,
+        "prob": 0.64,
+        "explanation": "Spouse execution indicates portfolio rebalancing. High negative alpha risk over 3M horizon.",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 5,
+          "R4": 4,
+          "R5": 5,
+          "R6": 4,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.35
+      },
+      "Llama-3.1-8B": {
+        "signal": "SELL",
+        "reason": null,
+        "prob": 0.54,
+        "explanation": "Prominent member disposition. Fresh filing (17d lag). Reduces single-asset concentration.",
+        "rubric": {
+          "R1": 5,
+          "R2": 4,
+          "R3": 5,
+          "R4": 4,
+          "R5": 4,
+          "R6": 4,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "WEIGHTED",
+        "weight": 0.2
+      },
+      "Gemma-2-9B": {
+        "signal": "HOLD",
+        "reason": null,
+        "prob": 0.48,
+        "explanation": "Partial sale only; substantial core holding retained. Insufficient evidence for total exit.",
+        "rubric": {
+          "R1": 5,
+          "R2": 4,
+          "R3": 4,
+          "R4": 4,
+          "R5": 4,
+          "R6": 5,
+          "R7": 4,
+          "R8": 5
+        },
+        "status": "WEIGHTED",
+        "weight": 0.1
+      },
+      "Mistral-7B": {
+        "signal": "SELL",
+        "reason": null,
+        "prob": 0.62,
+        "explanation": "Clear distribution pattern at cycle highs. Recommends immediate profit taking.",
+        "rubric": {
+          "R1": 5,
+          "R2": 4,
+          "R3": 4,
+          "R4": 3,
+          "R5": 4,
+          "R6": 3,
+          "R7": 4,
+          "R8": 5
+        },
+        "status": "WEIGHTED",
+        "weight": 0.0
+      }
+    },
+    "jev_decision": {
+      "signal": "SELL",
+      "reason": null,
+      "verdict": "Consensus confirmed across Apertus and Qwen. Real market outcome validated: NVDA dipped -19.3% over 3M, protecting capital.",
+      "message": "JEV Decision for Tech-Only (Investor B): SELL. High conviction exit signal validated. Near-term drawdown avoided."
+    },
+    "official_url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2024/20026145.pdf",
+    "investor_profile": {
+      "id": "B",
+      "name": "Tech-Only",
+      "hard_constraint": "Must ONLY hold companies classified in Information Technology (software, semiconductors, AI hardware).",
+      "risk_appetite": "Aggressive Growth",
+      "horizon": "3M"
+    }
+  },
+  {
+    "id": "US-CONG-2024-00620",
+    "politician": "Tommy Tuberville",
+    "party": "Republican",
+    "chamber": "Senate",
+    "district": "AL",
+    "committees": [
+      "Senate Armed Services (Seapower & Strategic Forces)"
+    ],
+    "ticker": "LMT",
+    "asset_name": "Lockheed Martin Corporation",
+    "asset_type": "Common Stock",
+    "tx_type": "Purchase",
+    "amount": "$1,001 - $15,000",
+    "owner": "Self",
+    "tx_date": "2024-11-12",
+    "filing_date": "2024-12-09",
+    "days_lag": 27,
+    "origin": "Senate PTR Electronic",
+    "category": "Prime Defense Contractor",
+    "market_returns": {
+      "3M": {
+        "asset": "+5.40%",
+        "spy": "+1.10%",
+        "alpha": "+4.30%",
+        "beat": true
+      },
+      "6M": {
+        "asset": "+11.80%",
+        "spy": "+5.20%",
+        "alpha": "+6.60%",
+        "beat": true
+      },
+      "9M": {
+        "asset": "+18.90%",
+        "spy": "+12.40%",
+        "alpha": "+6.50%",
+        "beat": true
+      }
+    },
+    "model_signals": {
+      "Apertus-1.5-70B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Lockheed Martin is prime defense contractor (F-35, missile systems). Violates Investor A.",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 5,
+          "R4": 4,
+          "R5": 5,
+          "R6": 5,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.4,
+        "model_class": "70 Billion Parameter Flagship (Swiss AI ETH/EPFL)"
+      },
+      "Apertus-1.5-8B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Lockheed Martin is prime defense contractor (F-35, missile systems). Violates Investor A mandate.",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 5,
+          "R4": 4,
+          "R5": 5,
+          "R6": 5,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.35
+      },
+      "Qwen-2.5-7B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Asset sector Aerospace & Defense fails Investor A mandate. Passes = false.",
+        "rubric": {
+          "R1": 5,
+          "R2": 4,
+          "R3": 4,
+          "R4": 4,
+          "R5": 4,
+          "R6": 4,
+          "R7": 4,
+          "R8": 5
+        },
+        "status": "WEIGHTED",
+        "weight": 0.0
+      },
+      "Llama-3.1-8B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Strict constraint fail. Senate Armed Services jurisdiction directly oversees Lockheed contracts.",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 4,
+          "R4": 4,
+          "R5": 5,
+          "R6": 4,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.5
+      },
+      "Gemma-2-9B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "100% defense equipment exposure. Zero tolerance threshold exceeded.",
+        "rubric": {
+          "R1": 5,
+          "R2": 4,
+          "R3": 4,
+          "R4": 4,
+          "R5": 5,
+          "R6": 5,
+          "R7": 4,
+          "R8": 5
+        },
+        "status": "WEIGHTED",
+        "weight": 0.0
+      },
+      "Mistral-7B": {
+        "signal": "BUY",
+        "reason": null,
+        "prob": 0.7,
+        "explanation": "Armed Services committee chair trade signal. Strong geopolitical procurement catalyst.",
+        "rubric": {
+          "R1": 0,
+          "R2": 4,
+          "R3": 4,
+          "R4": 4,
+          "R5": 1,
+          "R6": 2,
+          "R7": 3,
+          "R8": 5
+        },
+        "status": "DISCOUNTED",
+        "weight": 0.0,
+        "flaw": "CONSTRAINT_VIOLATION (Issued BUY on Lockheed Martin for Ethical No-Military investor)"
+      }
+    },
+    "jev_decision": {
+      "signal": "ABSTAIN",
+      "reason": "CONSTRAINT_FAIL",
+      "verdict": "Lockheed Martin violates Investor A. Mistral discounted for constraint breach. JEV enforces 100% compliance safety.",
+      "message": "JEV Decision for Ethical No-Military: ABSTAIN. Aerospace & defense contractor strictly blocked. Trust assigned to Apertus & Llama."
+    },
+    "official_url": "https://efdsearch.senate.gov/search/view/ptr/7c35272a-9cb8-4e89-a2cb-05d8f2ad0d19/",
+    "investor_profile": {
+      "id": "C",
+      "name": "Open Universe",
+      "hard_constraint": "No sector or ethical exclusions. Maximize directional conviction and risk-adjusted alpha.",
+      "risk_appetite": "Moderate",
+      "horizon": "6M"
+    }
+  },
+  {
+    "id": "US-CONG-2024-00001",
+    "politician": "Ann Wagner",
+    "party": "Republican",
+    "chamber": "House",
+    "district": "MO-2",
+    "committees": [
+      "Financial Services (Capital Markets Chair)",
+      "Foreign Affairs"
+    ],
+    "ticker": "JNJ",
+    "asset_name": "Johnson City TN 5% / Johnson & Johnson",
+    "asset_type": "Stock / Municipal",
+    "tx_type": "Purchase",
+    "amount": "$1,001 - $15,000",
+    "owner": "Joint (JT)",
+    "tx_date": "2024-12-31",
+    "filing_date": "2025-02-14",
+    "days_lag": 45,
+    "origin": "House Scanned Document OCR",
+    "category": "Healthcare / Municipal Bond (Stale Filing)",
+    "market_returns": {
+      "3M": {
+        "asset": "+2.10%",
+        "spy": "-4.27%",
+        "alpha": "+6.37%",
+        "beat": true
+      },
+      "6M": {
+        "asset": "+4.50%",
+        "spy": "+6.05%",
+        "alpha": "-1.55%",
+        "beat": false
+      },
+      "9M": {
+        "asset": "+8.20%",
+        "spy": "+14.23%",
+        "alpha": "-6.03%",
+        "beat": false
+      }
+    },
+    "model_signals": {
+      "Apertus-1.5-70B": {
+        "signal": "ABSTAIN",
+        "reason": "STALE_DISCLOSURE",
+        "prob": 0.45,
+        "explanation": "Critical timing lag: 45 days exceeds 40-day freshness limit. Low amount conviction ($1k-$15k).",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 5,
+          "R4": 4,
+          "R5": 4,
+          "R6": 5,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.4,
+        "model_class": "70 Billion Parameter Flagship (Swiss AI ETH/EPFL)"
+      },
+      "Apertus-1.5-8B": {
+        "signal": "ABSTAIN",
+        "reason": "STALE_DISCLOSURE",
+        "prob": 0.45,
+        "explanation": "Critical timing lag: 45 days exceeds 40-day freshness limit. Low amount conviction (-).",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 5,
+          "R4": 4,
+          "R5": 4,
+          "R6": 5,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.35
+      },
+      "Qwen-2.5-7B": {
+        "signal": "ABSTAIN",
+        "reason": "LOW_CONVICTION",
+        "prob": 0.48,
+        "explanation": "Amount bracket under $15k represents low conviction. Stale disclosure flag triggered.",
+        "rubric": {
+          "R1": 5,
+          "R2": 4,
+          "R3": 4,
+          "R4": 4,
+          "R5": 4,
+          "R6": 4,
+          "R7": 4,
+          "R8": 5
+        },
+        "status": "WEIGHTED",
+        "weight": 0.0
+      },
+      "Llama-3.1-8B": {
+        "signal": "ABSTAIN",
+        "reason": "STALE_DISCLOSURE",
+        "prob": 0.44,
+        "explanation": "Disclosure delay of 45 days nullifies informational advantage. Low conviction bracket.",
+        "rubric": {
+          "R1": 5,
+          "R2": 4,
+          "R3": 5,
+          "R4": 4,
+          "R5": 4,
+          "R6": 4,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.45
+      },
+      "Gemma-2-9B": {
+        "signal": "ABSTAIN",
+        "reason": "INSUFFICIENT_EVIDENCE",
+        "prob": 0.42,
+        "explanation": "OCR scan ambiguity: asset text indicates municipal bond while ticker indicates JNJ. Abstained.",
+        "rubric": {
+          "R1": 4,
+          "R2": 5,
+          "R3": 4,
+          "R4": 5,
+          "R5": 4,
+          "R6": 5,
+          "R7": 4,
+          "R8": 5
+        },
+        "status": "WEIGHTED",
+        "weight": 0.0
+      },
+      "Mistral-7B": {
+        "signal": "BUY",
+        "reason": null,
+        "prob": 0.58,
+        "explanation": "Healthcare defensive defensive entry recommended.",
+        "rubric": {
+          "R1": 5,
+          "R2": 3,
+          "R3": 1,
+          "R4": 2,
+          "R5": 3,
+          "R6": 2,
+          "R7": 3,
+          "R8": 5
+        },
+        "status": "DISCOUNTED",
+        "weight": 0.0,
+        "flaw": "IGNORED_LAG (Ignored 45-day disclosure lag and low amount conviction)"
+      }
+    },
+    "jev_decision": {
+      "signal": "ABSTAIN",
+      "reason": "STALE_DISCLOSURE",
+      "verdict": "45-day filing delay exceeds the 40-day threshold. Mistral-7B discounted for ignoring stale lag. Apertus and Llama trusted.",
+      "message": "JEV Decision: ABSTAIN. Filing is 45 days late and informational edge is priced in. Capital protected."
+    },
+    "official_url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2024/8220763.pdf",
+    "investor_profile": {
+      "id": "A",
+      "name": "Ethical No-Military",
+      "hard_constraint": "Must NOT hold companies in military/defense sector. Must enforce strict 40-day lag limit.",
+      "risk_appetite": "Conservative",
+      "horizon": "6M"
+    }
+  },
+  {
+    "id": "US-CONG-2024-00215",
+    "politician": "Michael McCaul",
+    "party": "Republican",
+    "chamber": "House",
+    "district": "TX-10",
+    "committees": [
+      "Foreign Affairs (Chair)",
+      "Homeland Security"
+    ],
+    "ticker": "ASML",
+    "asset_name": "ASML Holding N.V. (ADR)",
+    "asset_type": "Foreign ADR",
+    "tx_type": "Purchase",
+    "amount": ",001 - ,000",
+    "owner": "Spouse (SP)",
+    "tx_date": "2024-10-15",
+    "filing_date": "2024-11-04",
+    "days_lag": 20,
+    "origin": "House PTR Electronic",
+    "category": "Foreign ADR (Investor D Test)",
+    "market_returns": {
+      "3M": {
+        "asset": "-7.80%",
+        "spy": "+2.40%",
+        "alpha": "-10.20%",
+        "beat": false
+      },
+      "6M": {
+        "asset": "+14.20%",
+        "spy": "+6.80%",
+        "alpha": "+7.40%",
+        "beat": true
+      },
+      "9M": {
+        "asset": "+26.50%",
+        "spy": "+14.10%",
+        "alpha": "+12.40%",
+        "beat": true
+      }
+    },
+    "model_signals": {
+      "Apertus-1.5-70B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Foreign issuer: ASML is incorporated in Netherlands (Euronext/Nasdaq ADR). Fails Investor D US-only mandate.",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 5,
+          "R4": 5,
+          "R5": 5,
+          "R6": 5,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.4,
+        "model_class": "70 Billion Parameter Flagship (Swiss AI ETH/EPFL)"
+      },
+      "Apertus-1.5-8B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Foreign issuer: ASML is incorporated in Netherlands (Euronext/Nasdaq ADR). Fails Investor D US-only mandate.",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 5,
+          "R4": 5,
+          "R5": 5,
+          "R6": 5,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.35
+      },
+      "Qwen-2.5-7B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "ADR structure verified. Domicile Veldhoven, Netherlands. passes = false for Investor D.",
+        "rubric": {
+          "R1": 5,
+          "R2": 4,
+          "R3": 4,
+          "R4": 4,
+          "R5": 4,
+          "R6": 4,
+          "R7": 4,
+          "R8": 5
+        },
+        "status": "WEIGHTED",
+        "weight": 0.2
+      },
+      "Llama-3.1-8B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Foreign domicile detected (Netherlands). Violates Investor D hard mandate restricting to US-headquartered entities.",
+        "rubric": {
+          "R1": 5,
+          "R2": 5,
+          "R3": 5,
+          "R4": 4,
+          "R5": 5,
+          "R6": 4,
+          "R7": 5,
+          "R8": 5
+        },
+        "status": "SELECTED",
+        "weight": 0.35
+      },
+      "Gemma-2-9B": {
+        "signal": "ABSTAIN",
+        "reason": "CONSTRAINT_FAIL",
+        "prob": 0.0,
+        "explanation": "Regulatory jurisdiction mismatch. Strict exclusion for non-US domestic entities.",
+        "rubric": {
+          "R1": 5,
+          "R2": 4,
+          "R3": 4,
+          "R4": 4,
+          "R5": 5,
+          "R6": 5,
+          "R7": 4,
+          "R8": 5
+        },
+        "status": "WEIGHTED",
+        "weight": 0.0
+      },
+      "Mistral-7B": {
+        "signal": "BUY",
+        "reason": null,
+        "prob": 0.72,
+        "explanation": "Monopoly on EUV semiconductor photolithography. Top conviction buy signal on tech dominance.",
+        "rubric": {
+          "R1": 0,
+          "R2": 4,
+          "R3": 4,
+          "R4": 3,
+          "R5": 1,
+          "R6": 2,
+          "R7": 3,
+          "R8": 5
+        },
+        "status": "DISCOUNTED",
+        "weight": 0.0,
+        "flaw": "CONSTRAINT_VIOLATION (Recommended BUY on foreign ADR for US-Market Only investor)"
+      }
+    },
+    "jev_decision": {
+      "signal": "ABSTAIN",
+      "reason": "CONSTRAINT_FAIL",
+      "verdict": "ASML Holding is incorporated in the Netherlands. Investor D hard constraint forbids non-US entities. Mistral-7B discounted for constraint breach. Apertus & Llama trusted.",
+      "message": "JEV Decision for US-Market Only: ABSTAIN. Foreign ADR disqualified despite EUV monopoly. Mistral discounted."
+    },
+    "official_url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2024/20025982.pdf",
+    "investor_profile": {
+      "id": "D",
+      "name": "US-Market Only",
+      "hard_constraint": "Must ONLY hold entities headquartered in the United States and traded on US exchanges (no foreign ADRs).",
+      "risk_appetite": "Moderate",
+      "horizon": "6M"
+    }
+  }
+]
