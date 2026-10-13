@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congressional Trade Evaluation Benchmark (v2)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #090d16;
+            --bg-card: #111827;
+            --bg-elevated: #1e293b;
+            --border: #2e3a50;
+            --text-main: #f3f4f6;
+            --text-muted: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-green: #10b981;
+            --accent-indigo: #6366f1;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            padding: 30px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 25px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .stat-label { font-size: 12px; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+        .stat-val { font-size: 26px; font-weight: 800; margin-top: 6px; font-family: 'JetBrains Mono', monospace; color: #fff; }
+        
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        .card-header {
+            background: var(--bg-elevated);
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-body { padding: 24px; }
+        
+        .tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+        .tab-btn {
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 18px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .tab-btn.active {
+            background: var(--accent-indigo);
+            color: #fff;
+            border-color: var(--accent-indigo);
+        }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
+        .data-table th {
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+        .badge-pass { background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 2px 8px; border-radius: 4px; font-weight: 700; }
+        .signal-tag { padding: 3px 10px; border-radius: 6px; font-weight: 700; font-size: 11px; }
+        .sig-buy { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .sig-sell { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+        .sig-abstain { background: rgba(148, 163, 184, 0.2); color: #94a3b8; }
+        .text-muted { color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Congressional Trade Evaluation Benchmark (v2)</h1>
+            <p style="color: var(--text-muted); margin-top: 6px;">
+                5 Peer Models (~7B–9B Cohort: Apertus, Qwen, Llama, Gemma, Mistral) Evaluated Under Hard Investor Constraints
+            </p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Trades Evaluated</div>
+                <div class="stat-val">50</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Model Signals Tested</div>
+                <div class="stat-val">1000</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">JEV Constraint Safety</div>
+                <div class="stat-val" style="color: #34d399;">100% (0 Violations)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Benchmark Baseline</div>
+                <div class="stat-val" style="color: #38bdf8;">S&P 500 (SPY)</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 style="font-size: 18px; font-weight: 700;">Track 1 & Track 2 Leaderboards by Investor Mandate</h2>
+            </div>
+            <div class="card-body">
+                <div class="tabs"><button class="tab-btn active" onclick="switchTab('A')">Investor A</button><button class="tab-btn " onclick="switchTab('B')">Investor B</button><button class="tab-btn " onclick="switchTab('C')">Investor C</button><button class="tab-btn " onclick="switchTab('D')">Investor D</button></div>
+                
+        <div class="tab-pane active" id="tab-A">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Model</th>
+                        <th>Constraint Compliance</th>
+                        <th>Win Rate</th>
+                        <th>Net Alpha (6M vs SPY)</th>
+                        <th>Brier Score</th>
+                        <th>Abstention Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr >
+                <td>1</td>
+                <td>Apertus-1.5-8B</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>56.2%</td>
+                <td style="color: #34d399;">+0.21%</td>
+                <td>0.2848</td>
+                <td>50.0%</td>
+            </tr>
+            
+            <tr >
+                <td>2</td>
+                <td>Qwen-2.5-7B-Instruct</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>56.2%</td>
+                <td style="color: #34d399;">+0.21%</td>
+                <td>0.2850</td>
+                <td>50.0%</td>
+            </tr>
+            
+            <tr >
+                <td>3</td>
+                <td>Llama-3.1-8B-Instruct</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>56.2%</td>
+                <td style="color: #34d399;">+0.21%</td>
+                <td>0.2858</td>
+                <td>50.0%</td>
+            </tr>
+            
+            <tr >
+                <td>4</td>
+                <td>Gemma-2-9B-It</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>56.2%</td>
+                <td style="color: #34d399;">+0.21%</td>
+                <td>0.2865</td>
+                <td>50.0%</td>
+            </tr>
+            
+            <tr >
+                <td>5</td>
+                <td>Mistral-7B-Instruct-v03</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>56.2%</td>
+                <td style="color: #34d399;">+0.21%</td>
+                <td>0.2853</td>
+                <td>50.0%</td>
+            </tr>
+            
+            <tr style='background: rgba(56, 189, 248, 0.12); font-weight: 700;'>
+                <td>6</td>
+                <td>JEV (Final Evaluator)</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>56.2%</td>
+                <td style="color: #34d399;">+0.21%</td>
+                <td>N/A</td>
+                <td>50.0%</td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="tab-pane " id="tab-B">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Model</th>
+                        <th>Constraint Compliance</th>
+                        <th>Win Rate</th>
+                        <th>Net Alpha (6M vs SPY)</th>
+                        <th>Brier Score</th>
+                        <th>Abstention Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr >
+                <td>1</td>
+                <td>Apertus-1.5-8B</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>33.3%</td>
+                <td style="color: #34d399;">+8.88%</td>
+                <td>0.2764</td>
+                <td>68.0%</td>
+            </tr>
+            
+            <tr >
+                <td>2</td>
+                <td>Qwen-2.5-7B-Instruct</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>33.3%</td>
+                <td style="color: #34d399;">+8.88%</td>
+                <td>0.2717</td>
+                <td>68.0%</td>
+            </tr>
+            
+            <tr >
+                <td>3</td>
+                <td>Llama-3.1-8B-Instruct</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>33.3%</td>
+                <td style="color: #34d399;">+8.88%</td>
+                <td>0.2627</td>
+                <td>68.0%</td>
+            </tr>
+            
+            <tr >
+                <td>4</td>
+                <td>Gemma-2-9B-It</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>33.3%</td>
+                <td style="color: #34d399;">+8.88%</td>
+                <td>0.2585</td>
+                <td>68.0%</td>
+            </tr>
+            
+            <tr >
+                <td>5</td>
+                <td>Mistral-7B-Instruct-v03</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>33.3%</td>
+                <td style="color: #34d399;">+8.88%</td>
+                <td>0.2671</td>
+                <td>68.0%</td>
+            </tr>
+            
+            <tr style='background: rgba(56, 189, 248, 0.12); font-weight: 700;'>
+                <td>6</td>
+                <td>JEV (Final Evaluator)</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>25.0%</td>
+                <td style="color: #34d399;">+-4.93%</td>
+                <td>N/A</td>
+                <td>70.0%</td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="tab-pane " id="tab-C">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Model</th>
+                        <th>Constraint Compliance</th>
+                        <th>Win Rate</th>
+                        <th>Net Alpha (6M vs SPY)</th>
+                        <th>Brier Score</th>
+                        <th>Abstention Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr >
+                <td>1</td>
+                <td>Apertus-1.5-8B</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>59.1%</td>
+                <td style="color: #34d399;">+6.05%</td>
+                <td>0.2699</td>
+                <td>34.0%</td>
+            </tr>
+            
+            <tr >
+                <td>2</td>
+                <td>Qwen-2.5-7B-Instruct</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>59.1%</td>
+                <td style="color: #34d399;">+6.05%</td>
+                <td>0.2708</td>
+                <td>34.0%</td>
+            </tr>
+            
+            <tr >
+                <td>3</td>
+                <td>Llama-3.1-8B-Instruct</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>59.1%</td>
+                <td style="color: #34d399;">+6.05%</td>
+                <td>0.2732</td>
+                <td>34.0%</td>
+            </tr>
+            
+            <tr >
+                <td>4</td>
+                <td>Gemma-2-9B-It</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>59.1%</td>
+                <td style="color: #34d399;">+6.05%</td>
+                <td>0.2747</td>
+                <td>34.0%</td>
+            </tr>
+            
+            <tr >
+                <td>5</td>
+                <td>Mistral-7B-Instruct-v03</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>59.1%</td>
+                <td style="color: #34d399;">+6.05%</td>
+                <td>0.2719</td>
+                <td>34.0%</td>
+            </tr>
+            
+            <tr style='background: rgba(56, 189, 248, 0.12); font-weight: 700;'>
+                <td>6</td>
+                <td>JEV (Final Evaluator)</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>57.1%</td>
+                <td style="color: #34d399;">+1.56%</td>
+                <td>N/A</td>
+                <td>36.0%</td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="tab-pane " id="tab-D">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Model</th>
+                        <th>Constraint Compliance</th>
+                        <th>Win Rate</th>
+                        <th>Net Alpha (6M vs SPY)</th>
+                        <th>Brier Score</th>
+                        <th>Abstention Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr >
+                <td>1</td>
+                <td>Apertus-1.5-8B</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>54.5%</td>
+                <td style="color: #34d399;">+6.05%</td>
+                <td>0.2826</td>
+                <td>34.0%</td>
+            </tr>
+            
+            <tr >
+                <td>2</td>
+                <td>Qwen-2.5-7B-Instruct</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>54.5%</td>
+                <td style="color: #34d399;">+6.05%</td>
+                <td>0.2826</td>
+                <td>34.0%</td>
+            </tr>
+            
+            <tr >
+                <td>3</td>
+                <td>Llama-3.1-8B-Instruct</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>54.5%</td>
+                <td style="color: #34d399;">+6.05%</td>
+                <td>0.2832</td>
+                <td>34.0%</td>
+            </tr>
+            
+            <tr >
+                <td>4</td>
+                <td>Gemma-2-9B-It</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>54.5%</td>
+                <td style="color: #34d399;">+6.05%</td>
+                <td>0.2837</td>
+                <td>34.0%</td>
+            </tr>
+            
+            <tr >
+                <td>5</td>
+                <td>Mistral-7B-Instruct-v03</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>54.5%</td>
+                <td style="color: #34d399;">+6.05%</td>
+                <td>0.2828</td>
+                <td>34.0%</td>
+            </tr>
+            
+            <tr style='background: rgba(56, 189, 248, 0.12); font-weight: 700;'>
+                <td>6</td>
+                <td>JEV (Final Evaluator)</td>
+                <td><span class="badge badge-pass">100.0%</span></td>
+                <td>52.4%</td>
+                <td style="color: #34d399;">+1.75%</td>
+                <td>N/A</td>
+                <td>36.0%</td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 style="font-size: 18px; font-weight: 700;">Sample Evaluated Trades Preview</h2>
+            </div>
+            <div class="card-body">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Trade ID</th>
+                            <th>Politician</th>
+                            <th>Asset / Ticker</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Filing Lag</th>
+                            <th>JEV Signal (Open)</th>
+                            <th>Market Alpha (6M)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+        <tr>
+            <td><strong>US-CONG-2024-00390</strong></td>
+            <td>Ro Khanna <small class="text-muted">(Democrat)</small></td>
+            <td><strong>$HII</strong> <small class="text-muted">HUNTINGTON BANCSHARES INC</small></td>
+            <td>Purchase</td>
+            <td>$1,001 - $15,000</td>
+            <td>21d lag</td>
+            <td><span class="signal-tag sig-buy">BUY</span></td>
+            <td><strong>+16.1%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-00498</strong></td>
+            <td>Jonathan Jackson <small class="text-muted">(Republican)</small></td>
+            <td><strong>$GD</strong> <small class="text-muted">General Dynamics Corporat</small></td>
+            <td>Sale</td>
+            <td>$15,001 - $50,000</td>
+            <td>31d lag</td>
+            <td><span class="signal-tag sig-sell">SELL</span></td>
+            <td><strong>+6.15%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-00620</strong></td>
+            <td>Ro Khanna <small class="text-muted">(Democrat)</small></td>
+            <td><strong>$HII</strong> <small class="text-muted">HUNTINGTON BANCSHARES INC</small></td>
+            <td>Purchase</td>
+            <td>$1,001 - $15,000</td>
+            <td>23d lag</td>
+            <td><span class="signal-tag sig-buy">BUY</span></td>
+            <td><strong>+17.28%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-01451</strong></td>
+            <td>Ro Khanna <small class="text-muted">(Democrat)</small></td>
+            <td><strong>$HII</strong> <small class="text-muted">HUNTINGTON BANCSHARES NCO</small></td>
+            <td>Sale</td>
+            <td>$1,001 - $15,000</td>
+            <td>20d lag</td>
+            <td><span class="signal-tag sig-sell">SELL</span></td>
+            <td><strong>+16.0%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-01590</strong></td>
+            <td>Ro Khanna <small class="text-muted">(Democrat)</small></td>
+            <td><strong>$HII</strong> <small class="text-muted">HUNTINGTONBANCSHARESINCOR</small></td>
+            <td>Purchase</td>
+            <td>$1,001 - $15,000</td>
+            <td>23d lag</td>
+            <td><span class="signal-tag sig-buy">BUY</span></td>
+            <td><strong>+15.64%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-01718</strong></td>
+            <td>Jared Moskowitz <small class="text-muted">(Republican)</small></td>
+            <td><strong>$LMT</strong> <small class="text-muted">Lockheed Martin Corporati</small></td>
+            <td>Purchase</td>
+            <td>$1,001 - $15,000</td>
+            <td>31d lag</td>
+            <td><span class="signal-tag sig-buy">BUY</span></td>
+            <td><strong>-9.78%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-01856</strong></td>
+            <td>Byron Donalds <small class="text-muted">(Republican)</small></td>
+            <td><strong>$LMT</strong> <small class="text-muted">Lockheed Martln Corp (LMT</small></td>
+            <td>Purchase</td>
+            <td>$1,001 - $15,000</td>
+            <td>0d lag</td>
+            <td><span class="signal-tag sig-buy">BUY</span></td>
+            <td><strong>-9.78%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-01908</strong></td>
+            <td>Lisa Mcclain <small class="text-muted">(Republican)</small></td>
+            <td><strong>$PLTR</strong> <small class="text-muted">Palantir Technologies Inc</small></td>
+            <td>Purchase</td>
+            <td>$100,001 - $250,000</td>
+            <td>279d lag</td>
+            <td><span class="signal-tag sig-abstain">ABSTAIN</span></td>
+            <td><strong>+100.39%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-02153</strong></td>
+            <td>Valerie Hoyle <small class="text-muted">(Republican)</small></td>
+            <td><strong>$BA</strong> <small class="text-muted">Boeing Company (BA) [ST]</small></td>
+            <td>Purchase</td>
+            <td>$1,001 - $15,000</td>
+            <td>318d lag</td>
+            <td><span class="signal-tag sig-abstain">ABSTAIN</span></td>
+            <td><strong>+23.88%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-02190</strong></td>
+            <td>Valerie Hoyle <small class="text-muted">(Republican)</small></td>
+            <td><strong>$LMT</strong> <small class="text-muted">Lockheed Martin Corporati</small></td>
+            <td>Purchase</td>
+            <td>$1,001 - $15,000</td>
+            <td>318d lag</td>
+            <td><span class="signal-tag sig-abstain">ABSTAIN</span></td>
+            <td><strong>-6.99%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-00007</strong></td>
+            <td>Nancy Pelosi <small class="text-muted">(Democrat)</small></td>
+            <td><strong>$AAPL</strong> <small class="text-muted">Apple Inc. - Common Stock</small></td>
+            <td>Sale (Partial)</td>
+            <td>$5,000,001 - $25,000,000</td>
+            <td>17d lag</td>
+            <td><span class="signal-tag sig-sell">SELL</span></td>
+            <td><strong>-23.92%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-00008</strong></td>
+            <td>Nancy Pelosi <small class="text-muted">(Democrat)</small></td>
+            <td><strong>$NVDA</strong> <small class="text-muted">NVIDIA Corporation - Comm</small></td>
+            <td>Sale (Partial)</td>
+            <td>$1,000,001 - $5,000,000</td>
+            <td>17d lag</td>
+            <td><span class="signal-tag sig-sell">SELL</span></td>
+            <td><strong>+11.62%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-00032</strong></td>
+            <td>Michael McCaul <small class="text-muted">(Republican)</small></td>
+            <td><strong>$ADBE</strong> <small class="text-muted">ADOBE INC</small></td>
+            <td>Purchase</td>
+            <td>$250,001 - $500,000</td>
+            <td>15d lag</td>
+            <td><span class="signal-tag sig-buy">BUY</span></td>
+            <td><strong>-19.05%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-00144</strong></td>
+            <td>Kevin Hern <small class="text-muted">(Republican)</small></td>
+            <td><strong>$INTC</strong> <small class="text-muted">Intel Corporation - Commo</small></td>
+            <td>Sale</td>
+            <td>$50,001 - $100,000</td>
+            <td>15d lag</td>
+            <td><span class="signal-tag sig-sell">SELL</span></td>
+            <td><strong>+5.67%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>US-CONG-2024-00154</strong></td>
+            <td>Ro Khanna <small class="text-muted">(Democrat)</small></td>
+            <td><strong>$CSCO</strong> <small class="text-muted">CiSCo SYSTeMs, InC. Commo</small></td>
+            <td>Purchase</td>
+            <td>$1,001 - $15,000</td>
+            <td>8d lag</td>
+            <td><span class="signal-tag sig-buy">BUY</span></td>
+            <td><strong>+12.73%</strong></td>
+        </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(invId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('tab-' + invId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

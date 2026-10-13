@@ -1,0 +1,13 @@
+{
+  "dataset_title": "2024 US Congressional Trading Dataset (House + Senate)",
+  "verified_at": "2026-10-05T10:05:00Z",
+  "total_records": 11147,
+  "scope": "Calendar Year 2024 (Official STOCK Act Disclosures)",
+  "id_format": "US-CONG-2024-XXXXX (Standardized Sequential Public IDs)",
+  "breakdown_by_quarter": {
+    "Q1": 2105,
+    "Q2": 2537,
+    "Q3": 2443,
+    "Q4": 4062
+  }
+}
