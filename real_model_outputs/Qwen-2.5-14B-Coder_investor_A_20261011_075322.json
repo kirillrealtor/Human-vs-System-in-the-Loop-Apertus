@@ -1,0 +1,74 @@
+[
+  {
+    "trade_id": "US-CONG-2024-00390",
+    "politician": "Ro Khanna",
+    "ticker": "HII",
+    "investor_id": "A",
+    "model": {
+      "ollama_tag": "qwen2.5-coder:14b-instruct-q4_K_M",
+      "benchmark_name": "Qwen-2.5-14B-Coder",
+      "family": "Qwen 2.5",
+      "params": "14.8B"
+    },
+    "inference": {
+      "elapsed_seconds": 49.88,
+      "total_duration_seconds": 49.87,
+      "eval_count": 460,
+      "tokens_per_second": 9.2
+    },
+    "raw_output": "```json\n{\n  \"metadata\": {\n    \"model_name\": \"Quantitative Analyst Model\",\n    \"model_version\": \"1.0\",\n    \"prompt_version\": \"v2\",\n    \"evaluation_timestamp\": \"2024-12-18T00:00:00Z\",\n    \"trade_id\": \"US-CONG-2024-00390\",\n    \"investor_id\": \"A\"\n  },\n  \"constraint_check\": {\n    \"resolved_ticker\": \"HII\",\n    \"issuer_sector\": \"aerospace and defense\",\n    \"issuer_listing\": \"NYSE\",\n    \"passes\": false,\n    \"borderline\": false,\n    \"explanation\": \"The issuer, Huntington Ingalls Industries (HII), operates in the aerospace and defense sector, which violates the investor's hard constraint of not holding companies in the military or defense sector.\"\n  },\n  \"signal\": \"ABSTAIN\",\n  \"abstain_reason\": \"CONSTRAINT_FAIL\",\n  \"probability\": 0.0,\n  \"optimal_horizon\": null,\n  \"horizon_forecasts\": {\n    \"3M\": { \"direction\": null, \"expected_alpha_vs_spy_pct\": 0.0 },\n    \"6M\": { \"direction\": null, \"expected_alpha_vs_spy_pct\": 0.0 },\n    \"9M\": { \"direction\": null, \"expected_alpha_vs_spy_pct\": 0.0 }\n  },\n  \"fit_to_investor\": {\n    \"risk_fit\": null,\n    \"horizon_fit\": null,\n    \"suggested_allocation_pct\": 0.0\n  },\n  \"evidence_quality\": {\n    \"conviction_bracket\": \"LOW\",\n    \"timing_freshness\": \"FRESH (<15d)\"\n  },\n  \"rationale\": \"The trade involves Huntington Ingalls Industries (HII), which is in the aerospace and defense sector, violating the investor's hard constraint. Therefore, the signal is ABSTAIN.\",\n  \"cited_evidence\": [\"issuer_sector\"],\n  \"key_assumptions\": [],\n  \"risks_and_uncertainties\": []\n}\n```",
+    "parsed_output": {
+      "metadata": {
+        "model_name": "Quantitative Analyst Model",
+        "model_version": "1.0",
+        "prompt_version": "v2",
+        "evaluation_timestamp": "2024-12-18T00:00:00Z",
+        "trade_id": "US-CONG-2024-00390",
+        "investor_id": "A"
+      },
+      "constraint_check": {
+        "resolved_ticker": "HII",
+        "issuer_sector": "aerospace and defense",
+        "issuer_listing": "NYSE",
+        "passes": false,
+        "borderline": false,
+        "explanation": "The issuer, Huntington Ingalls Industries (HII), operates in the aerospace and defense sector, which violates the investor's hard constraint of not holding companies in the military or defense sector."
+      },
+      "signal": "ABSTAIN",
+      "abstain_reason": "CONSTRAINT_FAIL",
+      "probability": 0.0,
+      "optimal_horizon": null,
+      "horizon_forecasts": {
+        "3M": {
+          "direction": null,
+          "expected_alpha_vs_spy_pct": 0.0
+        },
+        "6M": {
+          "direction": null,
+          "expected_alpha_vs_spy_pct": 0.0
+        },
+        "9M": {
+          "direction": null,
+          "expected_alpha_vs_spy_pct": 0.0
+        }
+      },
+      "fit_to_investor": {
+        "risk_fit": null,
+        "horizon_fit": null,
+        "suggested_allocation_pct": 0.0
+      },
+      "evidence_quality": {
+        "conviction_bracket": "LOW",
+        "timing_freshness": "FRESH (<15d)"
+      },
+      "rationale": "The trade involves Huntington Ingalls Industries (HII), which is in the aerospace and defense sector, violating the investor's hard constraint. Therefore, the signal is ABSTAIN.",
+      "cited_evidence": [
+        "issuer_sector"
+      ],
+      "key_assumptions": [],
+      "risks_and_uncertainties": []
+    },
+    "parse_error": null,
+    "timestamp": "2026-10-11T07:53:22.568769"
+  }
+]

@@ -1,0 +1,75 @@
+[
+  {
+    "trade_id": "US-CONG-2024-00390",
+    "politician": "Ro Khanna",
+    "ticker": "HII",
+    "investor_id": "A",
+    "model": {
+      "ollama_tag": "my-security-ai:latest",
+      "benchmark_name": "SecurityAI-14B",
+      "family": "Qwen 2.5",
+      "params": "14.8B"
+    },
+    "inference": {
+      "elapsed_seconds": 52.47,
+      "total_duration_seconds": 52.46,
+      "eval_count": 482,
+      "tokens_per_second": 9.2
+    },
+    "raw_output": "```json\n{\n  \"metadata\": {\n    \"model_name\": \"Quantitative Analyst Model\",\n    \"model_version\": \"1.0\",\n    \"prompt_version\": \"v2\",\n    \"evaluation_timestamp\": \"2024-12-18T00:00:00Z\",\n    \"trade_id\": \"US-CONG-2024-00390\",\n    \"investor_id\": \"A\"\n  },\n  \"constraint_check\": {\n    \"resolved_ticker\": \"HII\",\n    \"issuer_sector\": \"Aerospace & Defense\",\n    \"issuer_listing\": \"NYSE\",\n    \"passes\": false,\n    \"borderline\": false,\n    \"explanation\": \"The issuer, Huntington Ingalls Industries (HII), operates in the aerospace and defense sector, which violates the investor's hard constraint.\"\n  },\n  \"signal\": \"ABSTAIN\",\n  \"abstain_reason\": \"CONSTRAINT_FAIL\",\n  \"probability\": 0.0,\n  \"optimal_horizon\": null,\n  \"horizon_forecasts\": {\n    \"3M\": {\"direction\": null, \"expected_alpha_vs_spy_pct\": 0.0},\n    \"6M\": {\"direction\": null, \"expected_alpha_vs_spy_pct\": 0.0},\n    \"9M\": {\"direction\": null, \"expected_alpha_vs_spy_pct\": 0.0}\n  },\n  \"fit_to_investor\": {\n    \"risk_fit\": null,\n    \"horizon_fit\": null,\n    \"suggested_allocation_pct\": 0.0\n  },\n  \"evidence_quality\": {\n    \"conviction_bracket\": \"LOW\",\n    \"timing_freshness\": \"FRESH (<15d)\"\n  },\n  \"rationale\": \"The trade involves Huntington Ingalls Industries (HII), which is in the aerospace and defense sector, violating the investor's hard constraint. Therefore, ABSTAIN.\",\n  \"cited_evidence\": [\n    \"Investor Profile: Must NOT hold companies in the military / defense sector.\",\n    \"Evidence Packet: Asset ticker HII, asset name Huntington Ingalls Industries, asset type Common Stock.\"\n  ],\n  \"key_assumptions\": [],\n  \"risks_and_uncertainties\": []\n}\n```",
+    "parsed_output": {
+      "metadata": {
+        "model_name": "Quantitative Analyst Model",
+        "model_version": "1.0",
+        "prompt_version": "v2",
+        "evaluation_timestamp": "2024-12-18T00:00:00Z",
+        "trade_id": "US-CONG-2024-00390",
+        "investor_id": "A"
+      },
+      "constraint_check": {
+        "resolved_ticker": "HII",
+        "issuer_sector": "Aerospace & Defense",
+        "issuer_listing": "NYSE",
+        "passes": false,
+        "borderline": false,
+        "explanation": "The issuer, Huntington Ingalls Industries (HII), operates in the aerospace and defense sector, which violates the investor's hard constraint."
+      },
+      "signal": "ABSTAIN",
+      "abstain_reason": "CONSTRAINT_FAIL",
+      "probability": 0.0,
+      "optimal_horizon": null,
+      "horizon_forecasts": {
+        "3M": {
+          "direction": null,
+          "expected_alpha_vs_spy_pct": 0.0
+        },
+        "6M": {
+          "direction": null,
+          "expected_alpha_vs_spy_pct": 0.0
+        },
+        "9M": {
+          "direction": null,
+          "expected_alpha_vs_spy_pct": 0.0
+        }
+      },
+      "fit_to_investor": {
+        "risk_fit": null,
+        "horizon_fit": null,
+        "suggested_allocation_pct": 0.0
+      },
+      "evidence_quality": {
+        "conviction_bracket": "LOW",
+        "timing_freshness": "FRESH (<15d)"
+      },
+      "rationale": "The trade involves Huntington Ingalls Industries (HII), which is in the aerospace and defense sector, violating the investor's hard constraint. Therefore, ABSTAIN.",
+      "cited_evidence": [
+        "Investor Profile: Must NOT hold companies in the military / defense sector.",
+        "Evidence Packet: Asset ticker HII, asset name Huntington Ingalls Industries, asset type Common Stock."
+      ],
+      "key_assumptions": [],
+      "risks_and_uncertainties": []
+    },
+    "parse_error": null,
+    "timestamp": "2026-10-11T04:47:08.747914"
+  }
+]

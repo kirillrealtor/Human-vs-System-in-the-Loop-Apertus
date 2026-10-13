@@ -23,7 +23,6 @@ __pycache__/
 
 # Root-level large datasets & local caches (preserved locally, official source is in track_2b/data/)
 /all_2024_congress_trades*
-/benchmark_results_full.json
 /market_data_cache.db
 /dataset_manifest.json
 /evaluation_results.json
@@ -38,8 +37,6 @@ __pycache__/
 /by_quarter/
 /layman_text/
 /evaluation_sessions/
-/real_model_outputs/
-/benchmark_results_50/
 /pipeline/
 
 # Root-level markdown specs (preserved locally, official copies in track_2b/docs/)
