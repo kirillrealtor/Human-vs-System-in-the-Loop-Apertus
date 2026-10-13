@@ -1,0 +1,30 @@
+{
+  "dataset_name": "HackApertus-Congressional-Trade-Evaluation-50",
+  "description": "50 Authentic 2024 US Congressional Stock Act trades evaluated under investor hard constraints using Apertus 1.5 (70B & 8B), benchmark models, and the JEV Arbiter Layer.",
+  "version": "1.0.0",
+  "author": "Human-vs-System-in-the-Loop",
+  "license": "CC-BY-4.0",
+  "task_type": "decision_support_constraint_evaluation",
+  "language": "en",
+  "size_records": 50,
+  "models_evaluated": [
+    "swiss-ai/Apertus-v1.5-70B",
+    "swiss-ai/Apertus-v1.5-8B",
+    "qwen2.5-coder:14b-instruct-q4_K_M",
+    "WhiteRabbitNeo/Llama-3.1-WhiteRabbitNeo-2-8B",
+    "neo-uncensored:latest",
+    "my-security-ai:latest"
+  ],
+  "rubrics": [
+    "R1_Constraint_Compliance",
+    "R2_Disclosure_Lag",
+    "R3_Amount_Conviction",
+    "R4_Jurisdiction",
+    "R5_Macro_Horizon",
+    "R6_Reasoning_Coherence",
+    "R7_Consensus",
+    "R8_Schema_Compliance"
+  ],
+  "data_source": "STOCK Act Public Financial Disclosures (2024)",
+  "intended_use": "Research benchmark for evaluating open sovereign LLMs on regulatory compliance, financial decision support, and insider trading disclosure analysis."
+}
