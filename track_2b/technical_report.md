@@ -3,8 +3,8 @@
 > **Autonomous Decision Support & JEV Arbiter Layer for US Congressional Stock Filings under Investor Hard Constraints**
 
 - **Track:** Track 2B — Own Project (Apertus Adoption)
-- **Event:** Hack Apertus Online 2024–2025
-- **Team:** Team Apertus-Loop (Kirill & Collaborators)
+- **Event:** Hack Apertus Online
+- **Team:** Human-vs-System-in-the-Loop — Kirill (@kirillrealtor), Noor (@noor123-tech)
 - **Repository:** https://github.com/kirillrealtor/Human-vs-System-in-the-Loop-Apertus
 - **Interactive Prototype / Demo:** http://localhost:8080 (Launch via `make run`)
 
