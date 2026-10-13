@@ -16,4 +16,33 @@ desktop.ini
 __pycache__/
 *.py[cod]
 .pytest_cache/
+*.log
 
+# Root-level legacy & scratch scripts (preserved locally, official source is in track_2b/src/)
+/*.py
+
+# Root-level large datasets & local caches (preserved locally, official source is in track_2b/data/)
+/all_2024_congress_trades*
+/benchmark_results_full.json
+/market_data_cache.db
+/dataset_manifest.json
+/evaluation_results.json
+/sample_trades_detailed.json
+/authentic_benchmark_data.json
+/benchmark_50_trades.json
+/politicians_summary_2024.*
+/tickers_summary_2024.*
+
+# Root-level legacy folders (preserved locally, official code is in track_2b/)
+/by_chamber/
+/by_quarter/
+/layman_text/
+/evaluation_sessions/
+/real_model_outputs/
+/benchmark_results_50/
+/pipeline/
+
+# Root-level markdown specs (preserved locally, official copies in track_2b/docs/)
+/BENCHMARK_EXECUTIVE_REPORT.md
+/JEV_REPORT_US-CONG-2024-00008.md
+/PROMPT_SET_v2.md
